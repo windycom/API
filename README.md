@@ -1,0 +1,2 @@
+# API
+Windyty API
