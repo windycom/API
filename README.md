@@ -53,14 +53,16 @@ Each user of Windyty API will recieve unique API key, that will be used for usag
 
 ## Windyty plugins repository
  - Windyty plugins are uploaded as NMP packages to local Windyty NPM repository server
- - For storage of Windyty plugins I propose [Sinopia](https://github.com/rlidwka/sinopia) server, that could run on npm.windyty.com. It is lightweight local version of npmjs.org, installed in 5 minutes.
  - Developers will first need to create user account via `npm adduser --registry http://npm.windyty.com/`
  - Then set registry `npm set registry http://npm.windyty.com`
  - Each plug-in is packed and published via `npm publish`
  - After publishing we will identify new package, untarbal it and store main JS file into www.windyty.com/plugins directory
  - Immediatedlly after publishing plugin is available on www.windyty.com/pluginID
+ - Test plugins are uploaded automatically to repository of tested plugins
 
-## Sinopia notes
+## Windyty internal notes
+ - For storage of Windyty plugins I propose [Sinopia](https://github.com/rlidwka/sinopia) server, that could run on npm.windyty.com. It is lightweight local version of npmjs.org, installed in 5 minutes.
+ - There will be two instances of Sinopa running. One for finished and one for tested plugins. It is our sole responsibility to synchronize user databases of both, so only one registration will be necessary.
  - Uploaded plugins are stored in `~/.local/share/sinopia/storage`
  - After installation of Sinopia it is necessary to delete whole section refering to npmjs.org in `~/.config/sinopia/config.yaml`
 
@@ -113,5 +115,5 @@ Now create `index.html`, `index.js` and `index.css` files inside `hello_world` d
 
         console.log('Whoa my first Windyty plugin')
 
-If your `grunt watch` is properlly running, you should see directory 
+If your `grunt watch` is properlly running you should be able to test the plugin on www.windyty.com or api.windyty.com
 
