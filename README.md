@@ -1,119 +1,199 @@
-# Windyty API
-Windyty API is set of utilities, that will enable you to:
- - Create plugins that will enhance Windyty.com functionality
- - Run Windyty inside your own web app, use most of the Windyty weather data files, and customize it
- - Create Windyty plugins that can, without any modification, run on both: in your own web app and also on Windyty.com
- - Visualise your own weather data sets, that can, without any modification, run on both: on your own web Windyty app and also on Windyty.com
- - Since plugins can contain logo and links, displaying plugin on Windyty.com can be good propagation of your own web app
+# Windyty API v1.0
+Windyty API is set of code and resources for displaying interactive animated map of weather forecast, based on GFS model.
 
-## Conditions of use of Windyty API
-Any develper can use Windyty API for his web app for free as long as following conditions are met:
- - Daily amount of rqsts to Windyty data files is limited, exact number to be figured up later
- - Logo and windyty.com link will be visible and unobscured on your web app
- - If you use Windyty for your own weather data, we can (after your prior permition) visualise these data on Windyty.com, togeter with logo and link to your website
+Use of this version of Windyty API is free for time being as long as Windyty logo and link to Windyty website will be visible on a map.
 
-## What are Windyty plugins
-- Windyty plugin is html, css and Javascript files and other resources, that reside in same directory
-- Windyty plugins have full access to Leaflet API (window.L object) and Windyty API (window.W object), and can modify look and functionality of Windyty
-- Each plugin is stored in Windyty plugin repository
-- Each plugin is identified by unique lowercase string, longer than 4 characters (for example "tracker"). Id must be unique in Windyty plugin repository
-- Each plugin is described with standard `package.json` file
-- Plugins are packed and published in Windyty repository via standard `npm` manager
-- Each plugin must "listen" to `close` event, and clean all installed objects from Leaflet map
+## How Windyty works
+Windyty introduces global object `W` and uses system of modules. Http module  is for example located at `W.http` and broadcast module is located at `W.broadcast`. 
 
-## Invoking Windyty plugin 
-Plugins stored in repository are launched by navigating to `www.windyty.com/pluginID` or `api.windyty.com/pluginID/APIkey`. 
+Your API code will communicate with Windyty by recieving or emmiting broadcasting messages, via `W.broadcast.on, off, once, fire`, for example like this:
 
-If you want to use Windyty API to build or enhance your own web application, just put the following code in your html file:
+        // Lets's wait till map is completelly rendered...
+        W.broadcast.on('redrawFinished',function(params) {
 
-        <iframe src="//api.windyty.com/pluginID/yourAPIkey"></iframe>
+            // ...than show temperature overlay, by firing
+            // redraw message with required parametrs
+            W.broadcast.emit('redraw',{ 
+                                        overlay: 'temp',
+                                        level:   'surface',
+                                        model:   'gfs',
+                                        product: 'gfs',
+                                        path:    '2015/12/07/15' 
+                                    })
+        })
 
-`api.windyty.com` is nothing else, than a slightly modified version of `www.windyty.com` with some limitations.
+Windyty uses Leaflet library, version 0.7.5,  to display map. Leaflet occupies global object `L`.
 
-## Testing Windyty plugin
-Plugins can be tested on both, www.windyty.com and api.windyty.com server by refering to plugin as `pluginId-test`. So for example plugin named "tracker" is available via `https://www.windyty.com/tracker-test` and `https://api.windyty.com/tracker-test`. API key can be ommited for test.
+You can use well documented [Leaflet API](http://leafletjs.com/) to do anything with Windyty map, including enormous number of Leaflet plugins. Leaflet map is already initilized in Windyty, and Leaflet map object is aviable via `W.maps`. Adding a marker to Windyty map looks for example like this:
 
-This simple way of testing can be achieved only if you run `grunt watch` in your `windyty` directory, since only then `grunt` monitors all changes in your code, and automatically uploads your work to plugin registry with `-test` suffix.
+        L.marker([51.5, -0.09]).addTo( W.maps )
 
-## Why we use iframe instead of creating windyty.js library
- - Windyty is not just JS library, but set of HTML, CSS, Leaflet, JS and a lot of weather data files. If we provide just some kind of windyty.js library, it will be up to you to put all this together and make it work. And we do not have a time to make any documentation or help you with it
- - Using iframe instead of windyty.js lib will mean, that we need just one developement branch since 95% of codes of api.windyty.com will be same as on www.windyty.com. Developement of both will be fast. Windyty API will have same new data files, features and bug fixes as Windyty.com.
- - Having same codebase for API and Windyty.com is the only way how plugins can run on both sides without modification: on Windyty.com and on api server
- - Encapsulating all Windyty codes into iframe can provide some protection, that amount of bad or malformed requests to our weather data files will be limited
- 
-## Limitation of api.windyty.com
-Api.windyty.com has some limitation compared to www.windyty.com:
- - It does not contain search, settings, and detail of spot
- - It does not contain METARs, and other POIs displayed on a map
- - It does not contain NEMS4 or other local forecasts
- - It does not contain snowcover and snow & rain accumulations
- 
-## API key
-Each user of Windyty API will recieve unique API key, that will be used for usage of api.windyty.com. Any misuse will lead to cancelling a key.
+If you decide to visualise your own weather data, you will have to extend some of Windyty classes. Windyty classes have first capital letter and can be extended by `extend` method like this:
 
-## Windyty plugins repository
- - Windyty plugins are uploaded as NMP packages to local Windyty NPM repository server
- - Developers will first need to create user account via `npm adduser --registry http://npm.windyty.com/`
- - Then set registry `npm set registry http://npm.windyty.com`
- - Each plug-in is packed and published via `npm publish`
- - After publishing we will identify new package, untarbal it and store main JS file into www.windyty.com/plugins directory
- - Immediatedlly after publishing plugin is available on www.windyty.com/pluginID
- - Test plugins are uploaded automatically to repository of tested plugins
+    var ozoneLayerOverlay = W.Overlay.extend({
+        // additional methods and stuff
+    });
 
-## Windyty internal notes
- - For storage of Windyty plugins I propose [Sinopia](https://github.com/rlidwka/sinopia) server, that could run on npm.windyty.com. It is lightweight local version of npmjs.org, installed in 5 minutes.
- - There will be two instances of Sinopa running. One for finished and one for tested plugins. It is our sole responsibility to synchronize user databases of both, so only one registration will be necessary.
- - Uploaded plugins are stored in `~/.local/share/sinopia/storage`
- - After installation of Sinopia it is necessary to delete whole section refering to npmjs.org in `~/.config/sinopia/config.yaml`
+## Hello world
+Get your API key at this address, and then create html file with following code:
 
-## Getting started
-Create your Windyty API key at [this address](https://www.windyty.com/api/)
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <style type="text/css">
+          html, body { height: 100%; margin: 0; padding: 0; }
+          #windyty { height: 80%; width: 80%; position: absolute; top: 10%; left: 10%; }
+        </style>
+      </head>
+      <body>
 
-Install windyty API libraries and examples.
+        <!-- Include div with 'windyty' id to your page -->
+        <div id="windyty"></div>
 
-`npm install windyty`
+        <script type="text/javascript">
 
-Install dependencies
+            // Windyty API key
+            var windytyKey = 'XpsPTZexBwUkO7Mx5I';
 
-`cd windyty`
+            // Optional: version of API you want to use
+            var windytyVersion = '1.0';  
 
-`sudo npm install`
+            // windytyMain() is called as soon as Windyty API
+            // will be ready 
+            function windytyMain() {
 
-In separate terminal window launch 
+                // Put your JS code here
+                console.log('Hello world')
+            }
 
-`grunt watch`
+        </script>
 
-This process will monitor any changes and updates in your plugin and automatilly publish your plugin to test repository so you can test them, just after you hit the SAVE FILE in your editor.
+        <!-- Load Windyty API -->
+        <script async defer src="http://api.windyty.com/js/boot.js"></script> 
 
-## Your first Hello world plugin
+      </body>
+    </html>
 
-Go to plugins directory and create new directory with your future plugin id.
+Wow, how easy it is.
 
-    cd windyty/plugins
-    mkdir hello_world
-    cd hello_world
-    nmp init
+## Define Windyty start-up parameters
+By default, Windyty API is launched with wind overlay and nearest aviable forecast. To define initail state of the map, use `windytyInit` object. Hello world script will then look like this:
 
-Now you will be prompted about various aspects, about your plugin. 
+        var windytyKey = 'XpsPTZexBwUkO7Mx5I';
 
-Now create `index.html`, `index.js` and `index.css` files inside `hello_world` directory with following content:
+        var windytyInit = {
 
-    index.html:
+            // initial state of the map
+            lat: 50.4,
+            lon: 14.3,
+            zoom: 8,
 
-        <div id="hello_world">Hello world!</div>
+            // initially displayed forecast
+            overlay: 'gust',
+            level: 'surface', 
+            path: '2015/11/24/03',
 
-    index.css:    
-
-        #hello_world {
-            position: fixed;
-            left: 50%;
-            top: 50%;
         }
 
+        function windytyMain() { ... }
 
-    index.js:
 
-        console.log('Whoa my first Windyty plugin')
 
-If your `grunt watch` is properlly running you should be able to test the plugin on www.windyty.com or api.windyty.com
+## Use Windyty to visualize your own weather data
+
+Windyty uses two classes for data management: `W.Product` and `W.Overlay`, and one class for visualisation: `W.Particles`. To display your own data, you will have to make your own instances of these classes, or use instances, that are already part of Windyty API.
+
+### W.Product
+Product is set of weather data, that share same density, coverage, are issued in the same intervals and reside in the same directories. Product contain methods to load and display the product on a map.
+
+Windyty has for example follofing instances of W.Product: `W.products.gfs` and `W.products.waves`.
+
+If you want to visualise your own data set you will have to make your own instance of W.Product, that describe your own product.
+
+### W.Overlay
+Overlay is set of colors and conversion functions, that identify color overlay.
+
+If your data files will have same metrics as Windyty metric, then you can use existing instances of W.Overlay classes, that reside in `W.overlays.wind, W.overlays.temp` and so on. If not, you will have to create your own instances of overlays, where you define your own metrics and colors. 
+
+### W.Particles
+Particles are objects, that display movement of wind and waves on the map. They define methods that return amout, width, speed and other visual parameters of particles based on zoom. Since there are de-facto two maps: ortographic and mercator, there are two instances of W.Particles class to extend: W.Particles.maps and W.Particles.globe. Windyty API uses only W.Particles.maps.
+
+Unless you want your particles to look different than a current particles, you can use current instances of particles `W.particles.wind.maps` and `W.particles.wave.maps`.
+
+## Step 1: Prepare data on your own server
+
+### Files and directories
+All data files must be stored in JSON files that must be stored in following directories and filenames:
+
+`YYYY/MM/DD/HH/overlay-level.json`
+
+I hope I don't need to explain what YYYY/MM/DD means. HH is hour for which the forecast is valid. As you can seen, Windyty does not support forecasts that are more detailed than for one hour.
+
+Overlay identifies overlay, and Windyty internally support following overlays: `wind, temp, pressure, clouds, rh, gust, snow, lclouds, rain, snowcover, waves, swell, wwaves, swellperiod`
+
+Of course you can name your overlay as you like, but the name of overlay must correspond to name of your custom W.Ovarlay instance. 
+
+Basic level is `surface` and other level used in Windyty are `975h, 950h, 925h, 900h, 850h, 750h, 700h, 550h, 450h, 350h, 300h, 250h, 200h, 150h`. 
+
+You can use any level identifier you will want.
+
+### JSON data files
+JSON files contain array of data points, that are distributed on the planet evenly, each lat and lon degree in WGS projection. Since this projection distrubutes data points in planet in gegraphicaly very uneven way, this is the worst projection for meteorological data. But we use it, because it is format of NOAA's GFS model, and computing such a data is pretty quick on client's browser.
+
+### Tylification of JSONs
+Web browsers and networks can handle JSONs up to 1 megabyte. But what about more detailed data? You have to "tylify" these data, or being exact, split these data to geographical tiles. And of course you can make more tileZoom levels, similary like map engines do it. Windyty API recognizes eight tileZoom levels, and each one have strict parameters, that you will have to fullfill.
+
+TileZoom level 0 is basic resolution. Data files reside in root directory and have 1x1 degree resolution. This resolution is used for global weather models covering whole world. If you want to display your data on a globe, you must have data in TileZoom level 0.
+
+For tileZoom level 1, the tiles must have 0.25x0.25 degree resolution, and fixed size 120x120 data points, se they are 30x30 geographical degrees wide and there is 12x6 tiles in the world.
+
+Description of other tileZooms and parameters can be found here:
+
+Tilyfied data will then reside in following directories:
+
+`YYYY/MM/DD/HH/tZ/X/Y/overlay-level.json`
+
+Z is in this case tileZoom level and X,Y represent the tile. 
+
+### JSON file format
+Windyty emerged from source codes of [Earth](https://github.com/cambecc/earth) project so basic JSON file format is the one, that is produced by [grib2json](https://github.com/cambecc/grib2json) utility. 
+
+The minimal format of the file at tileZoom level 0 is:
+    
+        [
+            {"header":
+                {"nx":360,"ny":181,
+                 "la1":90,"lo1":0,
+                 "la2":-90,"lo2":359,
+                 "dx":1,"dy":1 },
+             "data":[6.7,6.6,6.6,6.5,... 
+            },
+            {"header":
+                {"nx":360,"ny":181,
+                 "la1":90,"lo1":0,
+                 "la2":-90,"lo2":359,
+                 "dx":1,"dy":1 },
+             "data":[7.8,-5.6,6.6,6.5,... 
+            }
+        ]    
+
+So basically it is:
+ - Array that contains one to three objects
+ - Each object represent one data set
+ - Each data set have header and data section
+ - Header section is obligatory for grids at tileZoom level 0. For higher zooms, headers are ignored.
+ - Data are stored in single dimensional array.
+
+Tylified JSONs are much more easy and have following format:
+
+        [
+            [6.7,6.6,6.6,6.5,... ],
+            [7.8,-5.6,6.6,6.5,... ]
+        ]
+
+As you can see it is just Array of one up to three, single dimensional arrays.
+
+Most of the overlays have simple JSONs, that have just one data set. Wind have, for example, one data set for U-component of a wind and one for V-component of a wind.
+
+
 
