@@ -1,0 +1,6 @@
+# Windy API - Conditions to use API
+Windy API is set of code and resources for displaying interactive animated map of weather forecast. Use of this version of Windy API is free for the time being as long as Windy logo and link to Windy website will be visible on a map, and will remain clickable majority of the times, including all the credits to data providers (ECMWF, OSM).
+We reserve rights to change these conditions or to discontinue Windy API at any time.
+## Usage in mobile apps
+It is prohibited to use, bundle, or include Windy API client, data or any part of our intellectual property as a part of iOS or Android application without our prior written permission. This behavior will be treated as serious breach of our conditions and the app will be removed from Google Play or App Store as we have already done it few times before.
+Permission to use Windy API as a part of native mobile apps could be obtained, after consensual agreement of placing buttons to download native Windy app inside user's native app.
