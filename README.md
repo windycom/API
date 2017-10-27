@@ -1,6 +1,6 @@
 # Windy API
 
-![](img/intro.gif)
+![](assets/intro.gif)
 
 # Getting started
 Windy API enables you to create your own Windy Apps with minimum effort. You do not need any server, and you can have your Windy App up and running in less than 5 minutes. 
@@ -33,11 +33,17 @@ If you want use external library (for instance `jQuery`) or some Leaflet plugin 
 ```
 
 # Examples
+
 [1. Hello world](https://api.windy.com/myapps/59ca6222383fc346dd51a373)
+
 [2. Leaflet, markers and pupups](https://api.windy.com/myapps/59cb613b383fc346dd51a37e)
+
 [3. Playing with USer Interface](https://api.windy.com/myapps/59cb5559383fc346dd51a376)
+
 [4. Recieving broadcasts](https://api.windy.com/myapps/59f2d86b8944d95935cfff66)
+
 [5. Changing overlays, levels](https://api.windy.com/myapps/59f2e0e08944d95935cfff68)
+
 [Flight tracker](https://api2.windy.com/myapps/59c3714a534c3d3051e047c4)
 
 
