@@ -1,9 +1,9 @@
-# Windy API
+# Windy API v3.0
 
 ![](assets/intro.gif)
 
 ## Getting started
-Windy API enables you to create your own Windy Apps with minimum effort. You do not need any server, and you can have your Windy App up and running in less than 5 minutes. 
+Windy API enables you to create your own Windy Apps with minimum effort. You do not need any server, and you can have your Windy App up & running in less than 5 minutes. 
 
 Once you are logged in API console at [https://api.windy.com](https://api.windy.com), you can create one or more Windy Apps by adding JS, CSS or HTML code to client codes of Windy. 
 
@@ -11,7 +11,7 @@ Your published Windy App will be accessible on `https://mywindy.com/your-usernam
 
 If you want to run your Windy App on your own domain, set up your own server somewhere, and embed your Windy App inside and `iframe`.
 
-Windy API console let you edit **Javascript, CSS, Head** or **HTML** of Windy. HTML and Head content is inserted as the last element of document's `body`, or `head` section. 
+Windy API console let you edit **Javascript, CSS, Head** or **HTML** of Windy. HTML and Head content is inserted as the last element of document's `body`, or `head` section. Your javascript is wrapped inside `(function() { ... })()` so you donot need to wrap it.
 
 Windy javascript libraries use global object `W`. 
 
@@ -23,7 +23,7 @@ Your Javascript code, that you will write inside the editor in API console, will
 
 [2. Leaflet, markers and pupups](https://api.windy.com/myapps/59cb613b383fc346dd51a37e)
 
-[3. Playing with USer Interface](https://api.windy.com/myapps/59cb5559383fc346dd51a376)
+[3. Playing with User Interface](https://api.windy.com/myapps/59cb5559383fc346dd51a376)
 
 [4. Recieving broadcasts](https://api.windy.com/myapps/59f2d86b8944d95935cfff66)
 
@@ -31,7 +31,9 @@ Your Javascript code, that you will write inside the editor in API console, will
 
 [6. Display geoJSON](https://api.windy.com/myapps/5996e7ff41c2a866967c40ed)
 
-[Flight tracker](https://api.windy.com/myapps/59c3714a534c3d3051e047c4)
+[7. Boat tracker](https://api.windy.com/myapps/5a0062e22c38025ff375529c)
+
+[8. Flight tracker](https://api.windy.com/myapps/59c3714a534c3d3051e047c4)
 
 ## Using ES6
 Our examples use ES6 syntax, but there is no traspilation of Javascript code. Whatever you write, will go directlly to client's browser so use ES5 if you want to cover older browser. 
@@ -49,5 +51,7 @@ If you want use external library (for instance `jQuery`) or some Leaflet plugin 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
 ```
 
+## Old Windy API v2.3
+We are very sorry but, old API v2.3 is depreciated. We keep it running on server but we will not issue new API keys for it. We have not plan to shut it from servers down.
 
 
