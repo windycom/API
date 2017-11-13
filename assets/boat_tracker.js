@@ -1,9 +1,6 @@
 // While this example uses ES6, make sure to distribute your code
-// in ES5 to support older browser
-
-// 'dependenciesResolved' message is broadcasted when all Windy modules
-// are ready, nd you can safelly launch your app
-W.broadcast.once('dependenciesResolved', () => {
+// in ES5 to support older browsers
+(function() {
 
   const MARKER = encodeURI(`<?xml version="1.0" encoding="UTF-8" standalone="no"?>
   <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
@@ -92,4 +89,4 @@ W.broadcast.once('dependenciesResolved', () => {
 
   W.maps.setView([20.981956742832327, -14.65576171875], 5);
 
-});
+})();

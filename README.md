@@ -1,4 +1,4 @@
-# Windy API v3.0
+# Windy API v3.1
 
 ![](assets/intro.gif)
 
@@ -7,7 +7,7 @@ Windy API enables you to create your own Windy Apps with minimum effort. You do 
 
 Once you are logged in API console at [https://api.windy.com](https://api.windy.com), you can create one or more Windy Apps by adding JS, CSS or HTML code to client codes of Windy. 
 
-Your published Windy App will be accessible on `https://mywindy.com/your-username/name-of-your-app`, or if you prefer private app, the URL will be somewhat mangled like `https://mywindy.com/your-username/507f191e810c19729de860ea` (not implemented yet).
+Your published Windy App will be accessible on `https://mywindy.com/your-username/name-of-your-app`.
 
 If you want to run your Windy App on your own domain, set up your own server somewhere, and embed your Windy App inside and `iframe`.
 
@@ -35,6 +35,10 @@ Your Javascript code, that you will write inside the editor in API console, will
 
 [8. Flight tracker](https://api.windy.com/myapps/59c3714a534c3d3051e047c4)
 
+[9. Working with weather picker](https://api.windy.com/myapps/5a03f7ec9c963a620b273cc5)
+
+[10. Hosting your JS and CSS on your own server](https://api.windy.com/myapps/5a032a029c963a620b273cbb)
+
 ## Using ES6
 Our examples use ES6 syntax, but there is no traspilation of Javascript code. Whatever you write, will go directlly to client's browser so use ES5 if you want to cover older browser. 
 
@@ -51,7 +55,17 @@ If you want use external library (for instance `jQuery`) or some Leaflet plugin 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
 ```
 
+The same philosophy can be used to host your custom JS, CSS codes on your own server. 
+
 ## Old Windy API v2.3
 We are very sorry but, old API v2.3 is depreciated. We keep it running on server but we will not issue new API keys for it. We have not plan to shut it from servers down.
+
+# CHANGELOG
+### [3.1] - 11/2017
+- Change of app delivery mechanism (now whole `app.html` is rendered server side with all codes included)
+- CLient codes upgraded to `v12.34`
+
+### [3.0] - 10/2017
+- First version of Windy API launched, based on client codes `12.30`
 
 
