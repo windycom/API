@@ -6,6 +6,7 @@ Windy API enables you to create your own Windy App with minimum effort. You do n
 
 ## More resources
 [Windy API console](https://api.windy.com)
+
 [Documentation](https://community.windy.com/category/12/windy-api)
 
 ## Old Windy API v2.3
