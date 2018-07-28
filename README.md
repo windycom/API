@@ -35,7 +35,7 @@ Obtain your [Windy API key here](https://api4.windy.com/api-key/) and check out 
  - Windy uses a lot of global defined CSS classes, and id selectors, with nice names like `#bottom, #logo` etc. Windy also puts a lot of CSS classes to `body` tag dynamically. If design of Windy Map is broken, check your CSS and rename your id and selectors please.
  - Windy API v4 does not use cookies
  - Windy API v4 heavily uses `localStorage`. Unintentional or intentional modifications of our items can lead to instability of Windy API.
- - Using undocumented functions of Windy engine can break your app, when we decide to upgrade our codes. If you miss something, rather [let us know here](https://community.windy.com/category/12/windy-api) ark ask us to decument and expose other features.
+ - Using undocumented functions of Windy engine can break your app, when we decide to upgrade our codes. If you miss something, rather [let us know here](https://community.windy.com/category/12/windy-api) and ask us to document and expose other features.
  
 ## Conditions of use 
 ### Free version
