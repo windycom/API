@@ -1,0 +1,57 @@
+<html>
+  <head>
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script>
+    <script src="https://api4.windy.com/assets/libBoot.js"></script>
+  </head>
+  <body>
+    <div id="windy"></div>
+
+    <!-- Make sure you will generate YOUR OWN API KEY -->
+    <!-- at https://api4.windy.com -->
+
+    <script>
+    const options = {
+        key: 'PsLAtXpsPTZexBwUkO7Mx5I',
+        lat: 50.4, lon: 14.3, zoom: 5,
+    }
+
+    windyInit( options, windyAPI => {
+
+        const { picker, utils, broadcast } = windyAPI
+
+        picker.on('pickerOpened', latLon => {
+            // picker has been opened at latLon coords
+
+            let { lat, lon, values, overlay } = picker.getParams()
+            // -> 50.4, 14.3, 'wind', [ U,V, ]
+
+            let windObject = utils.wind2obj( values )
+
+            console.log( windObject )
+
+        })
+
+        picker.on('pickerMoved', latLon => {
+            // picker was dragged by user to latLon coords
+        })
+
+        picker.on('pickerClosed', () => {
+            // picker was closed
+        })
+
+        // Wait since wather is rendered
+        broadcast.once('redrawFinished', () => {
+
+            picker.open({ lat: 48.4, lon: 14.3 })
+            // Opening of a picker (async)
+
+        })
+
+    })
+
+    </script>
+
+  </body>
+</html>
+
