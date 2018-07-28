@@ -1,4 +1,4 @@
-![](assets/intro.gif)
+![](assets/intro4.gif)
 
 # Windy API v4
 Windy API v4, also known as as Windy Leaflet Plugin, is simple to use javascript API based on [Leaflet](https://leafletjs.com/) and technology, that powers [Windy.com](https://www.windy.com). 
