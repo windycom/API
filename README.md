@@ -7,7 +7,7 @@ Windy API uses Leaflet version `0.7.7`.
 
 ## Previous versions of Windy API
  - Windy API `v2.3` will be discontinued as of 31.11.2018
- - Console for depreciated Windy API `v3` can be found [here](https://api3.windy.com)
+ - Windy API `v3` will be discontinued as of 31.10.2018 or even earlier.
 
 ## Getting started
 Obtain your [Windy API key here](https://api4.windy.com/api-key/) and check out our tutorials. You will handle our API in less than 20 minutes!
