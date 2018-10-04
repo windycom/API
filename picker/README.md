@@ -1,5 +1,5 @@
 # `.picker`: Weather picker
-Weather picker resides at `windyApi.picker`. It can be opened programatically by calling `.open({ lat, lon })` or closed by `.close()` methods. 
+Weather picker works **only on desktop** and is not inteded for mobile use. It resides at `windyApi.picker`. It can be opened programatically by calling `.open({ lat, lon })` or closed by `.close()` methods. 
 
 If the picker is opened outside of the visible map, it can lead to exception or it is closed afterwards. Also panning the map, so the picker gets outside map, leads to auto closing of the picker. Picker emits messages about its own state so use methods `.on(), .off()` or `.once()` to observe `pickerOpened`, `pickerClosed` and `pickerMoved` broadcasts.
 

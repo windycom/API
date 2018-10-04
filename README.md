@@ -32,25 +32,28 @@ Obtain your [Windy API key here](https://api4.windy.com/api-key/) and check out 
  - While providing coordinates to Leaflet can be done via object `{ lat, lng }` with **lng** property, Windy supports `{ lat, lon }` with **lon** property. 
  - There can be only one instance of Windy Map on a page, but you can use multiple instances of Leaflet map on the same page.
  - All classes of `leaflet.css` are nested inside `#windy` selector (not to interfere with your own CSS), so if you want to use another instance of Leaflet map on the same page load `leaflet.css` yourself once more.
- - Windy uses a lot of global defined CSS classes, and id selectors, with nice names like `#bottom, #logo` etc. Windy also puts a lot of CSS classes to `body` tag dynamically. If design of Windy Map is broken, check your CSS and rename your id and selectors please.
+ - Windy uses a lot of global defined CSS classes and id selectors, with nice names like `#bottom, #logo` etc. Windy also puts a lot of CSS classes to `body` tag dynamically. If design of Windy Map is broken, check your CSS and rename your id and selectors please.
  - Windy API v4 does not use cookies
  - Windy API v4 heavily uses `localStorage`. Unintentional or intentional modifications of our items can lead to instability of Windy API.
  - Using undocumented functions of Windy engine can break your app, when we decide to upgrade our codes. If you miss something, rather [let us know here](https://community.windy.com/category/12/windy-api) and ask us to document and expose other features.
  
 ## Conditions of use 
 ### Free version
-Please bear in mind that we pay for `ecmwf` forecasting data. Therefore Windy API is free, with unrestricted traffic usage, but offers only `gfs` forecast model. Windy logo MUST remain clickable on the map without rescaling down, or messing with logo's opacity. However you are free to move logo wherever you want inside Windy map. For free version of API we reserve the right to 1) display advertisement inside the Windy map, 2) Place "Download Windy App" message time to time on mobile device, or 3) discontinue free version of Windy API v4 at any time without prior notice. 
+Windy API is free and with unrestricted traffic usage, but offers only the `gfs` forecast model and only `wind`,`rain`,`clouds`, `temperature`, `pressure`,`currents` and `waves` layer. The Windy logo MUST remain as it is, i.e. clickable and without modification. However, you can move the Windy logo wherever you want within the Windy map. For the free version of the API, we reserve the right to 1) display advertisement inside the Windy map, 2) place "Download Windy App" message from time to time on mobile devices, or 3) discontinue free version of Windy API v4 at any time without prior notice
 
 ### Paid version
-For serious work we recommend to use paid version, that contains `ecmwf`, `iconEu`, `nam` and `gfs` models and will not contain ads. It costs only 720USD per year (ordered via [this form](https://goo.gl/forms/qu21Snkl5igdIKcg1) and paid annually via invoice). Dvelopers of paid version can decrease opacity of Windy logo to 0.8 (however logo must remain clickable) and usage limit is average of 5.000 Unique Visitors a day (measured by Google Analytics). Contact us for quote for higher amounts.
+For serious work, we recommend to use the paid version that contains `iconEu`, `nam` and `gfs` models and all 35+ `layers` and also `isolines`. Paid version  will also not contain our advertisement. It costs only 720USD per year (ordered via [this form](https://goo.gl/forms/qu21Snkl5igdIKcg1) and paid annually via invoice). Developers of paid version can decrease opacity of Windy logo to 0.8 (however logo must remain clickable) and usage limit is average of 5.000 Unique Visitors a day (measured by Google Analytics). For permission to a higher quota, please contact us.
 
-### Using ecmwf model in free version
-Interesting, and non-commercial sites, using Windy API can ask for free upgrade to paid version. The condition is, that your project will be open sourced on GitHub. If this is your case, use the same form for paid version and describe your request.
+### Non-commercial projects
+Interesting and non-commercial sites using Windy API can ask for free upgrade to the paid version. The condition is that your project will be open sourced on GitHub. If this is your case, use the same form for paid version and describe your request.
 
 ## Technical support
-Drop a line at our [Windy API section](https://community.windy.com/category/12/windy-api) of our Windy Community forum.
+Drop a line in our [Windy API section](https://community.windy.com/category/12/windy-api) of our Windy Community forum.
 
 ## Changelog
+###### [4.4] - 2018-10-05
+- New API conditions
+
 ###### [4.0] - 2018-07-30
 - Leaflet and Windy library based on Leaflet `v0.7.7` and based on Windy Client `v15.15.1`
 
@@ -64,7 +67,7 @@ Drop a line at our [Windy API section](https://community.windy.com/category/12/w
 - boot.js now run on https
 
 ###### [2.1] - 2016-06-01
-- Increased size od typed arrays storage to handle retina displays
+- Increased size of typed arrays storage to handle retina displays
 
 ###### [2.0] - 2016-04-15
 - Completely new version of API based on new Windyty 6.X.X codes
