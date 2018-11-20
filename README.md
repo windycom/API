@@ -1,13 +1,12 @@
 ![](assets/intro4.gif)
 
 # Windy API v4
-Windy API v4, also known as as Windy Leaflet Plugin, is simple to use javascript API based on [Leaflet](https://leafletjs.com/) and technology, that powers [Windy.com](https://www.windy.com). 
+Windy API v4, also known as as Windy Leaflet Plugin, is simple to use javascript API based on [Leaflet](https://leafletjs.com/) and technology, that powers [Windy.com](https://www.windy.com).
 
 Windy API uses Leaflet version `0.7.7`.
 
 ## Previous versions of Windy API
  - Windy API `v2.3` will be discontinued as of 31.11.2018
- - Windy API `v3` will be discontinued as of 31.10.2018 or even earlier.
 
 ## Getting started
 Obtain your [Windy API key here](https://api4.windy.com/api-key/) and check out our tutorials. You will handle our API in less than 20 minutes!
@@ -29,15 +28,15 @@ Obtain your [Windy API key here](https://api4.windy.com/api-key/) and check out 
 
 ## Things to remember
  - Windy API is not compatible with higher versions of Leaflet and we have no intention to upgrade so far.
- - While providing coordinates to Leaflet can be done via object `{ lat, lng }` with **lng** property, Windy supports `{ lat, lon }` with **lon** property. 
+ - While providing coordinates to Leaflet can be done via object `{ lat, lng }` with **lng** property, Windy supports `{ lat, lon }` with **lon** property.
  - There can be only one instance of Windy Map on a page, but you can use multiple instances of Leaflet map on the same page.
  - All classes of `leaflet.css` are nested inside `#windy` selector (not to interfere with your own CSS), so if you want to use another instance of Leaflet map on the same page load `leaflet.css` yourself once more.
  - Windy uses a lot of global defined CSS classes and id selectors, with nice names like `#bottom, #logo` etc. Windy also puts a lot of CSS classes to `body` tag dynamically. If design of Windy Map is broken, check your CSS and rename your id and selectors please.
  - Windy API v4 does not use cookies
  - Windy API v4 heavily uses `localStorage`. Unintentional or intentional modifications of our items can lead to instability of Windy API.
  - Using undocumented functions of Windy engine can break your app, when we decide to upgrade our codes. If you miss something, rather [let us know here](https://community.windy.com/category/12/windy-api) and ask us to document and expose other features.
- 
-## Conditions of use 
+
+## Conditions of use
 ### Free version
 Windy API is free and with unrestricted traffic usage, but offers only the `gfs` forecast model and only `wind`,`rain`,`clouds`, `temperature`, `pressure`,`currents` and `waves` layer. The Windy logo MUST remain as it is, i.e. clickable and without modification. However, you can move the Windy logo wherever you want within the Windy map. For the free version of the API, we reserve the right to 1) display advertisement inside the Windy map, 2) place "Download Windy App" message from time to time on mobile devices, or 3) discontinue free version of Windy API v4 at any time without prior notice
 
@@ -51,6 +50,11 @@ Interesting and non-commercial sites using Windy API can ask for free upgrade to
 Drop a line in our [Windy API section](https://community.windy.com/category/12/windy-api) of our Windy Community forum.
 
 ## Changelog
+###### [4.5] - 2018-11-20
+- New lib codes based on Windy client `v16.17.0`
+- Updated menu on the right side to contain all the available layers.
+- Map selector was renamed to `#map-container` so make sure it will be compatible with your code.
+
 ###### [4.4] - 2018-10-05
 - New API conditions
 
