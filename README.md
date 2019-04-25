@@ -3,10 +3,13 @@
 # Windy API v4
 Windy API v4, also known as as Windy Leaflet Plugin, is simple to use javascript API based on [Leaflet](https://leafletjs.com/) and technology, that powers [Windy.com](https://www.windy.com).
 
-Windy API uses Leaflet version `0.7.7`.
+Windy API uses Leaflet version `1.4.x`.
 
-## Previous versions of Windy API
- - Windy API `v2.3` will be discontinued as of 31.11.2018
+## Upgrade from previous version of an API
+Windy API v4.5 was based on `Leaflet 0.7.7`. We hope that transition to the new version of Leaflet will be smooth. Both APIs are basically the same.
+
+Just replace `<script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script>` with `<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>`
+in your HTML code and you should be done.
 
 ## Getting started
 Obtain your [Windy API key here](https://api4.windy.com/api-key/) and check out our tutorials. You will handle our API in less than 20 minutes!
@@ -22,12 +25,11 @@ Obtain your [Windy API key here](https://api4.windy.com/api-key/) and check out 
 
 ## Other resources
  - [Manage your API key](https://api4.windy.com/api-key/)
- - [Leaflet 0.7.7 documentation](https://leafletjs.com/reference-0.7.7.html)
+ - [Leaflet documentation](https://leafletjs.com/)
  - [Leaflet Plugins](https://leafletjs.com/plugins.html)
  - [Windy API community discussion](https://community.windy.com/category/12/windy-api)
 
 ## Things to remember
- - Windy API is not compatible with higher versions of Leaflet and we have no intention to upgrade so far.
  - While providing coordinates to Leaflet can be done via object `{ lat, lng }` with **lng** property, Windy supports `{ lat, lon }` with **lon** property.
  - There can be only one instance of Windy Map on a page, but you can use multiple instances of Leaflet map on the same page.
  - All classes of `leaflet.css` are nested inside `#windy` selector (not to interfere with your own CSS), so if you want to use another instance of Leaflet map on the same page load `leaflet.css` yourself once more.
@@ -41,9 +43,9 @@ Obtain your [Windy API key here](https://api4.windy.com/api-key/) and check out 
 Windy API is free and with unrestricted traffic usage, but offers only the `gfs` forecast model and only `wind`,`rain`,`clouds`, `temperature`, `pressure`,`currents` and `waves` layer. The Windy logo MUST remain as it is, i.e. clickable and without modification. However, you can move the Windy logo wherever you want within the Windy map. For the free version of the API, we reserve the right to 1) display advertisement inside the Windy map, 2) place "Download Windy App" message from time to time on mobile devices, or 3) discontinue free version of Windy API v4 at any time without prior notice
 
 ### Paid version
-For serious work, we recommend to use the paid version that contains `iconEu`, `nam` and `gfs` models and the most of all `layers` and also `isolines`. Paid version  will also not contain our advertisement. It costs only 720USD per year (ordered via [this form](https://goo.gl/forms/qu21Snkl5igdIKcg1) and paid annually via invoice). Developers of paid version can decrease opacity of Windy logo to 0.8 (however logo must remain clickable) and usage limit is average of 5.000 Unique Visitors a day (measured by Google Analytics). For permission to a higher quota, please contact us.
+For serious work, we recommend to use the paid version that contains `iconEu`, `nam` and `gfs` models and the most of all `layers` and also `isolines`. Paid version  will also not contain our advertisement. It costs only 720USD per year (ordered via [this form](https://goo.gl/forms/WYTQ2Uoq0l7KZckw1) and paid annually via invoice). Developers of paid version can decrease opacity of Windy logo to 0.8 (however logo must remain clickable) and usage limit is average of 5.000 Unique Visitors a day (measured by Google Analytics). For permission to a higher quota, please contact us.
 
-We are not allowed to provide ECMWF data to third parties, and therefore we cannot provide layers based on this data model (`thunder`, `deg0`, `cloudtop`, `cbase`, `visibility`, `swell3`, `snowcover`, `ozone`, `sst` and `cape`). We also cannot provide you with the `radar` layer. Everything else is included in the paid version and this [Change Windy parameters](https://api4.windy.com/examples/parameters/) tutorial will show you how to access all allowed layers (even if they are not displayed in the right menu).
+We are not allowed to provide ECMWF data to third parties, and therefore we cannot provide layers based on this data model (`thunder`, `deg0`, `cloudtop`, `cbase`, `visibility`, `swell3`, `snowcover`, `ozone`, `sst` and `cape`). Please note that some layers are based on multiple forecast models. Such layers are available, however, without ECMWF forecasts (for example: `waves`, `wind waves` or `swell` where the **Wavewatch 3** model does not cover the Mediterranean Sea and other areas). We also cannot provide you with the `radar` layer. Everything else is included in the paid version. Please check the map for yourself at [Windy.com](https://www.windy.com/) and see if it meets your expectations.
 
 ### Non-commercial projects
 Interesting and non-commercial sites using Windy API can ask for free upgrade to the paid version. The condition is that your project will be open sourced on GitHub. If this is your case, use the same form for paid version and describe your request.
@@ -52,6 +54,9 @@ Interesting and non-commercial sites using Windy API can ask for free upgrade to
 Drop a line in our [Windy API section](https://community.windy.com/category/12/windy-api) of our Windy Community forum.
 
 ## Changelog
+###### [4.7] - 2019-04-29
+- Finally version with `Leaflet 1.4.`
+
 ###### [4.5] - 2018-11-20
 - New lib codes based on Windy client `v16.17.0`
 - Updated menu on the right side to contain all the available layers.
