@@ -47,6 +47,8 @@ For serious work, we recommend to use the paid version that contains `iconEu`, `
 
 We are not allowed to provide ECMWF data to third parties, and therefore we cannot provide layers based on this data model (`thunder`, `deg0`, `cloudtop`, `cbase`, `visibility`, `swell3`, `snowcover`, `ozone`, `sst` and `cape`). Please note that some layers are based on multiple forecast models. Such layers are available, however, without ECMWF forecasts (for example: `waves`, `wind waves` or `swell` where the **Wavewatch 3** model does not cover the Mediterranean Sea and other areas). We also cannot provide you with the `radar` layer. Everything else is included in the paid version. Please check the map for yourself at [Windy.com](https://www.windy.com/) and see if it meets your expectations.
 
+Please bear in mind, that Windy does not provide any individual support even for the paid version. If you have any concerns, please report it to the relevant subsection on [Windy Community](https://community.windy.com/category/12/windy-api-v4). Topics there are regularly checked by our developers.
+
 ### Non-commercial projects
 Interesting and non-commercial sites using Windy API can ask for free upgrade to the paid version. The condition is that your project will be open sourced on GitHub. If this is your case, use the same form for paid version and describe your request.
 
