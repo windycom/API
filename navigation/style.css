@@ -1,0 +1,14 @@
+#windy #bottom,
+#windy #mobile-ovr-select,
+#windy #embed-zoom {
+    display: none !important;
+}
+
+#windy #logo-wrapper {
+    top: initial;
+    bottom: 40px;
+}
+
+#windy #logo-wrapper #logo {
+    left: 50px;
+}
