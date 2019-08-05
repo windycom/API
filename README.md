@@ -1,87 +1,24 @@
 ![](assets/intro4.gif)
 
-# Windy API v4
-Windy API v4, also known as as Windy Leaflet Plugin, is simple to use javascript API based on [Leaflet](https://leafletjs.com/) and technology, that powers [Windy.com](https://www.windy.com).
+# Windy JavaScript API
 
-Windy API uses Leaflet version `1.4.x`.
+Windy JavaScript API is a simple-to-use library based on [Leaflet](https://leafletjs.com/) **1.4.x**. It allows you to use everything Leaflet or JavaScript offers along with the Windy map visualizations we are using at [Windy.com](https://www.windy.com/).
 
-## Upgrade from previous version of an API
-Windy API v4.5 was based on `Leaflet 0.7.7`. We hope that transition to the new version of Leaflet will be smooth. Both APIs are basically the same.
+This repository contains only Windy JavaScript API examples, check [https://api.windy.com/](https://api.windy.com/) for more info.
 
-Just replace `<script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script>` with `<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>`
-in your HTML code and you should be done.
-
-## Getting started
-Obtain your [Windy API key here](https://api4.windy.com/api-key/) and check out our tutorials. You will handle our API in less than 20 minutes!
+Do you think any particular example or tutorial is lacking? PR is more than welcome!
 
 ## Examples
- - [Hello World](https://api4.windy.com/examples/hello-world/)
- - [Change Windy parameters](https://api4.windy.com/examples/parameters/)
- - [Observe what is happening inside](https://api4.windy.com/examples/bcast/)
- - [Mess with User Interface](https://api4.windy.com/examples/navigation/)
- - [Change units](https://api4.windy.com/examples/metrics/)
- - [Use weather picker](https://api4.windy.com/examples/picker/)
- - [Boat tracker](https://api4.windy.com/examples/boat-tracker/)
+ - [Hello World](examples/hello-world/)
+ - [Change Windy parameters](examples/parameters/)
+ - [Observe what is happening inside](examples/bcast/)
+ - [Mess with User Interface](examples/navigation/)
+ - [Change units](examples/metrics/)
+ - [Use weather picker](examples/picker/)
+ - [Boat tracker](examples/boat-tracker/)
 
 ## Other resources
- - [Manage your API key](https://api4.windy.com/api-key/)
+ - [Windy API homepage](https://api.windy.com/)
+ - [Windy API community discussion](https://community.windy.com/category/12/windy-api)
  - [Leaflet documentation](https://leafletjs.com/)
  - [Leaflet Plugins](https://leafletjs.com/plugins.html)
- - [Windy API community discussion](https://community.windy.com/category/12/windy-api)
-
-## Things to remember
- - While providing coordinates to Leaflet can be done via object `{ lat, lng }` with **lng** property, Windy supports `{ lat, lon }` with **lon** property.
- - There can be only one instance of Windy Map on a page, but you can use multiple instances of Leaflet map on the same page.
- - All classes of `leaflet.css` are nested inside `#windy` selector (not to interfere with your own CSS), so if you want to use another instance of Leaflet map on the same page load `leaflet.css` yourself once more.
- - Windy uses a lot of global defined CSS classes and id selectors, with nice names like `#bottom, #logo` etc. Windy also puts a lot of CSS classes to `body` tag dynamically. If design of Windy Map is broken, check your CSS and rename your id and selectors please.
- - Windy API v4 does not use cookies
- - Windy API v4 heavily uses `localStorage`. Unintentional or intentional modifications of our items can lead to instability of Windy API.
- - Using undocumented functions of Windy engine can break your app, when we decide to upgrade our codes. If you miss something, rather [let us know here](https://community.windy.com/category/12/windy-api) and ask us to document and expose other features.
-
-## Conditions of use
-### Free version
-Windy API is free and with unrestricted traffic usage, but offers only the `gfs` forecast model and only `wind`,`rain`,`clouds`, `temperature`, `pressure`,`currents` and `waves` layer. The Windy logo MUST remain as it is, i.e. clickable and without modification. However, you can move the Windy logo wherever you want within the Windy map. For the free version of the API, we reserve the right to 1) display advertisement inside the Windy map, 2) place "Download Windy App" message from time to time on mobile devices, or 3) discontinue free version of Windy API v4 at any time without prior notice
-
-### Paid version
-For serious work, we recommend to use the paid version that contains `iconEu`, `nam` and `gfs` models and the most of all `layers` and also `isolines`. For less than 5000 daily requests there is no advertising in paid version - if you exceed 5000 requests in a day, advertising will be displayed. It costs only 720USD per year (ordered via [this form](https://pipedrivewebforms.com/form/29db1a578673fdebbafc5c5c5816e1eb5803983) and paid annually via invoice). Developers of paid version can decrease opacity of Windy logo to 0.8 (however logo must remain clickable) and usage limit is average of 5.000 Unique Visitors a day (measured by Google Analytics). For permission to a higher quota, please contact us.
-
-We are not allowed to provide ECMWF data to third parties, and therefore we cannot provide layers based on this data model (`thunder`, `deg0`, `cloudtop`, `cbase`, `visibility`, `swell3`, `snowcover`, `ozone`, `sst` and `cape`). Please note that some layers are based on multiple forecast models. Such layers are available, however, without ECMWF forecasts (for example: `waves`, `wind waves` or `swell` where the **Wavewatch 3** model does not cover the Mediterranean Sea and other areas). We also cannot provide you with the `radar` layer. Everything else is included in the paid version. Please check the map for yourself at [Windy.com](https://www.windy.com/) and see if it meets your expectations.
-
-Please bear in mind, that Windy does not provide any individual support even for the paid version. If you have any concerns, please report it to the relevant subsection on [Windy Community](https://community.windy.com/category/12/windy-api-v4). Topics there are regularly checked by our developers.
-
-### Non-commercial projects
-Interesting and non-commercial sites using Windy API can ask for free upgrade to the paid version. The condition is that your project will be open sourced on GitHub. If this is your case, use the same form for paid version and describe your request.
-
-## Technical support
-Drop a line in our [Windy API section](https://community.windy.com/category/12/windy-api) of our Windy Community forum.
-
-## Changelog
-###### [4.7] - 2019-04-29
-- Finally version with `Leaflet 1.4.`
-
-###### [4.5] - 2018-11-20
-- New lib codes based on Windy client `v16.17.0`
-- Updated menu on the right side to contain all the available layers.
-- Map selector was renamed to `#map-container` so make sure it will be compatible with your code.
-
-###### [4.4] - 2018-10-05
-- New API conditions
-
-###### [4.0] - 2018-07-30
-- Leaflet and Windy library based on Leaflet `v0.7.7` and based on Windy Client `v15.15.1`
-
-###### [3.0] - 2017-2018
-- Windy API as easy to use console, using `iframe` and requires all apps to run on `mywindy.com` domain.
-
-###### [2.3] - 2016-11-18
-- Fixed bug after changing URL from `windyty.com` to `windytv.com`
-
-###### [2.2] - 2016-06-01
-- boot.js now run on https
-
-###### [2.1] - 2016-06-01
-- Increased size of typed arrays storage to handle retina displays
-
-###### [2.0] - 2016-04-15
-- Completely new version of API based on new Windyty 6.X.X codes
-

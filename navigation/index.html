@@ -1,45 +1,35 @@
 <html>
-  <head>
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
-    <script src="https://api4.windy.com/assets/libBoot.js"></script>
-    <style>
-      #windy {
-        width: 100%;
-        height: 300px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="windy"></div>
+    <head>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+        />
+        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+        <script src="https://api4.windy.com/assets/libBoot.js"></script>
+        <style>
+            #windy {
+                width: 100%;
+                height: 300px;
+            }
 
-    <!-- Make sure you will generate YOUR OWN API KEY -->
-    <!-- at https://api4.windy.com -->
+            #windy #bottom,
+            #windy #mobile-ovr-select,
+            #windy #embed-zoom {
+                display: none !important;
+            }
 
-    <style>
-        #windy #bottom,
-        #windy #mobile-ovr-select,
-        #windy #embed-zoom {
-            display: none !important;
-        }
+            #windy #logo-wrapper {
+                top: initial;
+                bottom: 40px;
+            }
 
-        #windy #logo-wrapper {
-            top: initial;
-            bottom: 40px;
-        }
-
-        #windy #logo-wrapper #logo {
-            left: 50px;
-        }
-    </style>
-    <script>
-        const options = {
-            key: 'PsLAtXpsPTZexBwUkO7Mx5I',
-        }
-
-        windyInit( options, windyAPI => {})
-    </script>
-
-  </body>
+            #windy #logo-wrapper #logo {
+                left: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="windy"></div>
+        <script src="script.js"></script>
+    </body>
 </html>
-

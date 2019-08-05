@@ -1,49 +1,20 @@
 <html>
-  <head>
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
-    <script src="https://api4.windy.com/assets/libBoot.js"></script>
-    <style>
-      #windy {
-        width: 100%;
-        height: 300px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="windy"></div>
-
-    <!-- Make sure you will generate YOUR OWN API KEY -->
-    <!-- at https://api4.windy.com -->
-
-    <script>
-      const options = {
-        key: 'PsLAtXpsPTZexBwUkO7Mx5I'
-      }
-
-      windyInit( options, windyAPI => {
-
-        // All the params are stored in windyAPI.store
-        const { overlays, broadcast } = windyAPI
-
-        var windMetric = overlays.wind.metric
-        // 'kt' .. actually selected metric for wind overlay
-        // Read only value! Do not modify.
-
-        overlays.wind.listMetrics()
-        // ['kt', 'bft', 'm/s', 'km/h', 'mph'] .. available metrics
-
-        overlays.wind.setMetric('bft')
-        // Metric for wind was changed to bft
-
-        broadcast.on('metricChanged', (overlay,newMetric) => {
-
-          // Any changes of any metric can be observed here
-
-        })
-      })
-    </script>
-
-  </body>
+    <head>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+        />
+        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+        <script src="https://api4.windy.com/assets/libBoot.js"></script>
+        <style>
+            #windy {
+                width: 100%;
+                height: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="windy"></div>
+        <script src="script.js"></script>
+    </body>
 </html>
-

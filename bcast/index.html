@@ -1,62 +1,20 @@
 <html>
-  <head>
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
-    <script src="https://api4.windy.com/assets/libBoot.js"></script>
-    <style>
-      #windy {
-        width: 100%;
-        height: 300px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="windy"></div>
-
-    <!-- Make sure you will generate YOUR OWN API KEY -->
-    <!-- at https://api4.windy.com -->
-
-    <script>
-
-    const options = {
-        key: 'PsLAtXpsPTZexBwUkO7Mx5I'
-
-        // Tip: Use verbose true for nice console output
-        // verbose: true
-
-    }
-
-    windyInit( options, windyAPI => {
-
-        const { store, broadcast } = windyAPI
-        // broadcast is main Windy's event emmiter that
-        // let you know what is happening inside
-
-        // Change overlays programatically
-        var overlays = ['rain','wind','temp','clouds']
-        , i = 0
-
-        setInterval( ()=> {
-            i = ( i === 3 ? 0 : i + 1 )
-            store.set('overlay', overlays[ i ] )
-        }, 800)
-
-        // Observe the most important broadcasts
-        broadcast.on('paramsChanged', params => {
-
-            console.log('Params changed:', params )
-
-        })
-
-        broadcast.on('redrawFinished', params => {
-
-            console.log('Map was rendered:', params )
-
-        })
-    })
-
-    </script>
-
-  </body>
+    <head>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+        />
+        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+        <script src="https://api4.windy.com/assets/libBoot.js"></script>
+        <style>
+            #windy {
+                width: 100%;
+                height: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="windy"></div>
+        <script src="script.js"></script>
+    </body>
 </html>
-

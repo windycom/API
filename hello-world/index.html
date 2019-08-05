@@ -1,54 +1,20 @@
 <html>
-  <head>
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
-    <script src="https://api4.windy.com/assets/libBoot.js"></script>
-    <style>
-      #windy {
-        width: 100%;
-        height: 300px;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="windy"></div>
-
-    <!-- Make sure you will generate YOUR OWN API KEY -->
-    <!-- at https://api4.windy.com -->
-
-    <script>
-
-    const options = {
-
-                // Required: API key
-                key: 'PsLAtXpsPTZexBwUkO7Mx5I',
-
-                // Put additional console output
-                verbose: true,
-
-                // Optional: Initial state of the map
-                lat: 50.4,
-                lon: 14.3,
-                zoom: 5,
-        }
-
-    // Initialize Windy API
-    windyInit( options, windyAPI => {
-        // windyAPI is ready, and contain 'map', 'store',
-        // 'picker' and other usefull stuff
-
-        const { map } = windyAPI
-        // .map is instance of Leaflet map
-
-        L.popup()
-            .setLatLng([50.4, 14.3])
-            .setContent("Hello World")
-            .openOn( map );
-
-    })
-
-    </script>
-
-  </body>
+    <head>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+        />
+        <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+        <script src="https://api4.windy.com/assets/libBoot.js"></script>
+        <style>
+            #windy {
+                width: 100%;
+                height: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="windy"></div>
+        <script src="script.js"></script>
+    </body>
 </html>
-
