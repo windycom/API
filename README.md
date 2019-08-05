@@ -9,13 +9,13 @@ This repository contains only Windy JavaScript API examples, check [https://api.
 Do you think any particular example or tutorial is lacking? PR is more than welcome!
 
 ## Examples
- - [Hello World](examples/hello-world/)
- - [Change Windy parameters](examples/parameters/)
- - [Observe what is happening inside](examples/bcast/)
- - [Mess with User Interface](examples/navigation/)
- - [Change units](examples/metrics/)
- - [Use weather picker](examples/picker/)
- - [Boat tracker](examples/boat-tracker/)
+ - [Hello World](hello-world/)
+ - [Change Windy parameters](parameters/)
+ - [Observe what is happening inside](bcast/)
+ - [Mess with User Interface](navigation/)
+ - [Change units](metrics/)
+ - [Use weather picker](picker/)
+ - [Boat tracker](boat-tracker/)
 
 ## Other resources
  - [Windy API homepage](https://api.windy.com/)
