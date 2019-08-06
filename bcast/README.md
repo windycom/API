@@ -1,4 +1,4 @@
-# `.broadcast`: Observe what is happening
+# Observe what is happening inside
 Major broadcasts are emmited by `windApi.broadcast`. Recieving and emmiting messages in Windy API has usuall syntax and methods: `on, off, once, fire`. 
 
 Tip: Use `verbose: true` as a parameter in start up `options` to see nice colorfull output in browser's console.

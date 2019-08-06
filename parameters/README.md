@@ -1,4 +1,5 @@
-# `.store`: Changing Windy parameters
+# Change Windy parameters
+
 Main Windy parameters like overlay, level and forecast model are identified by string identifier, for example `overlay` can be `rainAccu`, or `level` can be `850h`.
 
 State of Windy map is then stored in key-value store, that can be used via `windyAPI.store`. Use methods `.get(key)` or `.set(key,value)` to read or modify values.
