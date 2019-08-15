@@ -2,7 +2,7 @@
 
 # Windy JavaScript API
 
-Windy JavaScript API is a simple-to-use library based on [Leaflet](https://leafletjs.com/) **1.4.x**. It allows you to use everything Leaflet or JavaScript offers along with the Windy map visualizations we are using at [Windy.com](https://www.windy.com/).
+Windy JavaScript API is a simple-to-use library based on [Leaflet](https://leafletjs.com/) **1.4.x**. It allows you to use everything Leaflet or JavaScript offers, along with the Windy map visualizations we use at [Windy.com](https://www.windy.com/).
 
 This repository contains only Windy JavaScript API examples, check [https://api.windy.com/](https://api.windy.com/) for more info.
 

@@ -1,2 +1,2 @@
 # Mess with User Interface
-Use CSS to mess with user interface of Windy map. All the stuff is well under `#windy` selector. Just make sure that Windy logo, remains unscaled, clickable and with opacity 1 (free version of the API).
+Use CSS to mess with the user interface of the Windy map. All the stuff is well under the `#windy` selector. Just make sure that the Windy logo remains unscaled, clickable, and with opacity 1.

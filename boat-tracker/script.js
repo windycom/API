@@ -40,7 +40,7 @@ windyInit(options, windyAPI => {
         }
     };
 
-    fetch('../../assets/boats.json')
+    fetch('boats.json')
         .then(response => response.json())
         .then(result => result.result)
         .then(result => {
