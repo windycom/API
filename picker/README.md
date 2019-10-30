@@ -17,7 +17,7 @@ Array `[ U, V ]`, where U and V are wind vectors in `m/s`. To compute wind magni
 Temperature in `K`
 
 ### rain, rainAccumulation
-Rain for a duration of 3 or the selected accumulation period in `mm`
+Rain for a duration of 3 hours or the selected accumulation period in `mm`
 
 ### waves, swell
 Array `[ U, V, size]` where U and V are direction vectors and wave size is in `m`. Period in seconds is computed as `Math.sqrt( U * U + V * V )`. Use `utils.wave2obj( values )`, which returns `{ dir: 325.9878, size: 2.4, period: 8 }`
