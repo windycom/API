@@ -5,7 +5,7 @@ The Leaflet CSS is loaded automatically.
 
 Your application must contain `<div id="windy"></div>` in the place where you want to position the Windy map. Use CSS to resize or position Windy `div` as you wish.
 
-In your JS code call the function `windyInit( options, callback )`, where the options object must contain a mandatory API key. Other start-up values are optional, but it is highly recommended to put as many start-up parameters as possible.
+In your JS code call the function `windyInit( options, callback )`, where the options object must contain a mandatory API key in the field `key`. Other start-up values are optional, but it is highly recommended to put as many start-up parameters as possible.
 
 Your `callback` is called whenever Windy API is ready and as a parameter it receives the object with Windy API.
 
