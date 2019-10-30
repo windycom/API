@@ -13,7 +13,7 @@ windyInit(options, windyAPI => {
         console.log(latLon);
 
         const { lat, lon, values, overlay } = picker.getParams();
-        // -> 50.4, 14.3, 'wind', [ U,V, ]
+        // -> 48.4, 14.3, [ U,V, ], 'wind'
         console.log(lat, lon, values, overlay);
 
         const windObject = utils.wind2obj(values);
