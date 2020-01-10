@@ -1,10 +1,10 @@
 ![](assets/intro4.gif)
 
-# Windy JavaScript API
+# Map Forecast API
 
-Windy JavaScript API is a simple-to-use library based on [Leaflet](https://leafletjs.com/) **1.4.x**. It allows you to use everything Leaflet or JavaScript offers, along with the Windy map visualizations we use at [Windy.com](https://www.windy.com/).
+Map Forecast API is a simple-to-use library based on [Leaflet](https://leafletjs.com/) **1.4.x**. It allows you to use everything Leaflet or JavaScript offers, along with the Windy map visualizations we use at [Windy.com](https://www.windy.com/).
 
-This repository contains only Windy JavaScript API examples, check [https://api.windy.com/](https://api.windy.com/) for more info.
+This repository contains only Map Forecast API examples, check [https://api.windy.com/](https://api.windy.com/) for more info.
 
 Do you think any particular example or tutorial is lacking? PR is more than welcome!
 
