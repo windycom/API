@@ -1,5 +1,5 @@
 # Hello world
-Load the Leaflet library at the beginning of your script and after that the Windy API library from URL `https://api4.windy.com/assets/libBoot.js`.
+Load the Leaflet library at the beginning of your script and after that the Windy API library from URL `https://api.windy.com/assets/map-forecast/libBoot.js`.
 
 The Leaflet CSS is loaded automatically.
 
