@@ -19,7 +19,7 @@ After some of the units (wind, temp, ...) have been changed.
 ### rqstOpen, rqstClose, closeAll
 Requests to load and open or close lazy loaded plugins (see later)
 
-### pluginOpend, pluginClosed
+### pluginOpened, pluginClosed
 Lazy loaded plugin was successfully loaded and opened/closed
 
 ### redrawLayers
