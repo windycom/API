@@ -1,5 +1,5 @@
 # Observe what is happening inside
-Major broadcasts are emitted by `windApi.broadcast`. Receiving and emitting messages in Windy API has the usual syntax and methods: `on, off, once, fire`.
+Major broadcasts are emitted by `windyApi.broadcast`. Receiving and emitting messages in Windy API has the usual syntax and methods: `on, off, once, fire`.
 
 Tip: Use `verbose: true` as a parameter in start up `options` to see a nice colorful output in the browser's console.
 
